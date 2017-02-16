@@ -10,6 +10,7 @@ npm install --save react-redux
 ```
 
 - I updated my index.js file as following:
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -31,6 +32,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
 - I don't yet know if this "works" yet...I have simply created the basics.  My reducer file
 looks like this:
 
