@@ -165,6 +165,8 @@ another reducer or anything so nothing needed to be added to my rootReducer.
 let store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 ```
 
+- Getting it published to GH-Pages was a bit tough for a number of reaons particular to my computer
+BUT now that I know how to deploy React apps to GH-Pages, I should deploy all my apps.
 
 
 
