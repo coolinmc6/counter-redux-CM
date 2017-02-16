@@ -30,9 +30,10 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
-
+```
 - I don't yet know if this "works" yet...I have simply created the basics.  My reducer file
 looks like this:
+
 ```javascript
 import { combineReducers } from 'redux';
 
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
 
 export default rootReducer;
 ```
+
   - so it's pretty much blank
 - To really check to see if it works, I should try to create my Counter component
 
@@ -50,6 +52,7 @@ export default rootReducer;
   - mapStateToProps
   - export connected component, now a container
 - This is what I have now...I think I'm on the right track:
+
 ```javascript
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -70,20 +73,24 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Counter)
 ```
+
 - I updated my Counter really quickly to actually show what I want it to show...which is a number
 and a button that a user can click to increment it:
+
 ```javascript
 <div>
 	<h2>{this.props.count}</h2>
 	<button> + </button>
 </div>
 ```
+
 - I put `this.props.count` because that is what I know I will want my component to eventually show.
 - Now I need to write my action.
 - Actions take in an argument that, I believe, can be anything that I want it to be.  Because my
 counter app just needs to increment by one, I could just pass the actual count.  But, I have a feeling
 that people probably pass more than just the value but an object, so that's what I'll do.
 - This is my action:
+
 ```javascript
 export function countUp(obj) {
 	return {
@@ -92,6 +99,7 @@ export function countUp(obj) {
 	}
 }
 ```
+
 - I am using `obj` as my object for now because it just gets it in my head that, for right now, I am 
 receiving an object with a count property.  Even if it only has one property, count, I feel better right
 now calling it an object so that I remember that the 'count' is in `obj.count`
@@ -100,6 +108,7 @@ now calling it an object so that I remember that the 'count' is in `obj.count`
   - write my mapDispatchToProps function
   - add mapDispatchToProps function to connect
 - After doing that, I realized that I hadn't actually created a valid reducer yet.  So now I have to do that...
+
 ```javascript
 // ./reducers/reducer_count.js
 export default function(state = 0, action) {
@@ -122,6 +131,7 @@ const rootReducer = combineReducers({
 
 export default rootReducer;
 ```
+
 - I screwed up a couple different things but I think I have a better idea of what's going on.
 - First, my action, I originally wrote it to receive an object.  But when I wrote my event handler, 
 I was passing it the actual count (`this.props.count`).  The fact that I got the app working was a bit
@@ -148,9 +158,11 @@ order that I did them:
 'DECREMENT' and my CountReducer just needed an additional case in the switch statement.  I didn't have to add
 another reducer or anything so nothing needed to be added to my rootReducer.
 - I updated my store declaration so that I can take a look at the redux dev tools:
+
 ```javascript
 let store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 ```
+
 
 
 
